@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: ml-competitor-worker
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: ML_SITE_ID
+        value: MLB
+      - key: PLAYWRIGHT_HEADLESS
+        value: "true"
+      - key: PLAYWRIGHT_TIMEOUT_MS
+        value: "25000"
+      - key: MAX_INPUTS
+        value: "10"
+      - key: MAX_RESULTS
+        value: "10"
+      - key: SEARCH_PAGES_PER_QUERY
+        value: "1"
+      - key: DETAIL_PAGES_PER_ITEM
+        value: "true"
+      - key: WORKER_API_KEY
+        sync: false
+      - key: ML_CLIENT_ID
+        sync: false
+      - key: ML_CLIENT_SECRET
+        sync: false
+      - key: ML_ACCESS_TOKEN
+        sync: false
+      - key: ML_REFRESH_TOKEN
+        sync: false
